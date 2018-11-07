@@ -129,7 +129,7 @@ void HtmlReporter::reportMsiTarget(ofstream& ofs, MsiTarget* tumor, MsiTarget* n
 
     int maxBin = tumor->mMaxBin;
     if(normal)
-        maxBin = min(maxBin, tumor->mMaxBin);
+        maxBin = max(maxBin, tumor->mMaxBin);
     int bins = maxBin-minBin+1;
 
     if(bins<20) {
