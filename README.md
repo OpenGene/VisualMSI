@@ -1,5 +1,5 @@
 # VisualMSI
-VisualMSI is a tool to visualize and detect microsatellite status from NGS data, by simulating the PCR behavior. VisualMSI extracts the PCR adapters from the reference genome, and try to map them to the sequencing reads. If the adapter mapping is succeeded, the inserted length will be calculated. VisualMSI performs statistics based on the inserted length distribution, which is very similar as the PCR-based MSI detection method.
+VisualMSI is a tool to detect and visualize microsatellite status from NGS data, by simulating the PCR behavior. VisualMSI extracts the PCR adapters from the reference genome, and tries to map them to the sequencing reads. If the adapters are successfully mapped to a read/pair, its inserted length enbraced by the adapter will be calculated. VisualMSI performs statistics based on the inserted length distribution. This method is very similar as the PCR-based MSI detection method, which is usually considered as the golden standard method for clinical usage.
 
 For each MSI target locus, VisualMSI computes the information entropy of its inserted length distribution. The information entropy value is a indicator for the MSI status, the higher the information entropy is, the higher the probility that this MSI locus is instable.
 
