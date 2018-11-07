@@ -132,6 +132,11 @@ void VisualMSI::evaluate(string filename, vector<MsiTarget*>& msiTargets, map<st
     vector<int> locuses;
     while ((r = sam_read1(in, mBamHeader, b)) >= 0) {
 
+        // unmapped reads, we just continue
+        if(b->core.tid < 0 || b->core.pos < 0) {
+            continue;
+        }
+
         // check whether the BAM is sorted
         if(b->core.tid <lastTid || (b->core.tid == lastTid && b->core.pos <lastPos)) {
             // skip the -1:-1, which means unmapped
@@ -165,11 +170,6 @@ void VisualMSI::evaluate(string filename, vector<MsiTarget*>& msiTargets, map<st
 
         lastTid = b->core.tid;
         lastPos = b->core.pos;
-
-        // unmapped reads, we just write it and continue
-        if(b->core.tid < 0 || b->core.pos < 0) {
-            continue;
-        }
 
         // for secondary alignments, we just skip it
         if(!BamUtil::isPrimary(b)) {
