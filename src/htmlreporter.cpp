@@ -1,5 +1,6 @@
 #include "htmlreporter.h"
 #include <sstream>
+#include <chrono>
 #include "common.h"
 
 HtmlReporter::HtmlReporter(Options* opt){
