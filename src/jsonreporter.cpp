@@ -44,8 +44,8 @@ void JsonReporter::reportMsiTarget(ofstream& ofs, MsiTarget* tumor, MsiTarget* n
         ofs <<"]," << endl;
     }
 
-    ofs << "\t\t\t\"start\":" << tumor->mStart << "," << endl;
-    ofs << "\t\t\t\"end\":" << tumor->mEnd << "," << endl;
+    ofs << "\t\t\t\"chrom\":\"" << tumor->mChr << "\"," << endl;
+    ofs << "\t\t\t\"position\":" << tumor->mCenter << "," << endl;
     ofs << "\t\t\t\"left_adapter\":\"" << tumor->mLeftAdapter << "\"," << endl;
     ofs << "\t\t\t\"right_adapter\":\"" << tumor->mRightAdapter << "\"," << endl;
     ofs << "\t\t\t\"inserted_on_ref\":\"" << tumor->mInserted << "\"" << endl;

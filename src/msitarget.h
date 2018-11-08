@@ -18,7 +18,7 @@ using namespace std;
 
 class MsiTarget{
 public:
-    MsiTarget(string chr, int start, int end, string name);
+    MsiTarget(string chr, int center, string name);
     ~MsiTarget();
 
     void addLen(int len);
@@ -31,8 +31,6 @@ public:
 
 public:
     string mChr;
-    int mStart;
-    int mEnd;
     int mCenter;
     string mName;
     int* mHistogram;

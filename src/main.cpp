@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
     //cmd.add<string>("umi_prefix", 'u', "the prefix for UMI, if it has. None by default. Check the README for the defails of UMI formats.", false, "");
 
     cmd.add<int>("adapter_len", 'a', "set the length of the adapter for PCR simulation (5~30). Default 12 means the left and right adapter both have 12 bp.", false, 12);
-    cmd.add<int>("target_inserted_len", 'l', "set the distance on reference of the two adapters for PCR simulation (20~200). Default 100 means: <left adapter><100 bp inserted><right adapter>", false, 100);
+    cmd.add<int>("target_inserted_len", 'l', "set the distance on reference of the two adapters for PCR simulation (20~200). Default 60 means: <left adapter><60 bp inserted><right adapter>", false, 60);
     cmd.add<int>("depth_req", 'd', "set the minimum depth requirement for each MSI locus (1~1000). Default 10 means 10 supporting reads/pairs are required.", false, 10);
 
     // reporting

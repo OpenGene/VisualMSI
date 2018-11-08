@@ -8,11 +8,9 @@
 #include <math.h>
 #include "emd.h"
 
-MsiTarget::MsiTarget(string chr, int start, int end, string name){
+MsiTarget::MsiTarget(string chr, int center, string name){
     mChr = chr;
-    mStart = start;
-    mEnd = end;
-    mCenter = (mStart + mEnd) /2;
+    mCenter = center;
     mName = name;
     mHistogram = new int[MAX_HIST_BIN];
     mMaxBin = 0;
@@ -129,14 +127,13 @@ vector<MsiTarget*> MsiTarget::parseBed(string filename) {
         if(starts_with(splitted[0], "#"))
             continue;
         // position line require id, start, position
-        if(splitted.size()<4)
+        if(splitted.size()<3)
             continue;
 
         string chr = trim(splitted[0]);
-        int start = atoi(trim(splitted[1]).c_str());
-        int end = atoi(trim(splitted[2]).c_str());
-        string name = trim(splitted[3]);
-        MsiTarget* t = new MsiTarget(chr, start, end, name);
+        int center = atoi(trim(splitted[1]).c_str());
+        string name = trim(splitted[2]);
+        MsiTarget* t = new MsiTarget(chr, center, name);
         targets.push_back(t);
     }
     return targets;
@@ -161,5 +158,5 @@ void MsiTarget::stat() {
 }
 
 void MsiTarget::print() {
-    cerr << mChr << "\t" << mStart << "\t" << mEnd << "\t" << mName << "\t" << mLeftAdapter << "\t" << mInserted << "\t" << mRightAdapter << endl;
+    cerr << mChr << "\t" << mCenter << "\t" << mName << "\t" << mLeftAdapter << "\t" << mInserted << "\t" << mRightAdapter << endl;
 }

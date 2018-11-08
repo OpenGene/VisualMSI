@@ -8,7 +8,7 @@ Options::Options(){
     refFile = "";
     maxContig = 0;
     adapterLen = 12;
-    targetInsertedSize = 100;
+    targetInsertedSize = 60;
     depthReq = 10;
 }
 

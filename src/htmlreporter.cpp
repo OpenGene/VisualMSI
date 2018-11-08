@@ -116,10 +116,15 @@ void HtmlReporter::reportMsiTarget(ofstream& ofs, MsiTarget* tumor, MsiTarget* n
 
     ofs << "<div class='subsection_title'><a title='click to hide/show' onclick=showOrHide('" << divName << "')>" + subsection + "</a></div>\n";
     ofs << "<div id='" + divName + "'>\n";
-    ofs << "<div class='sub_section_tips'>" << tumor->mChr << ":" << tumor->mStart << "-" << tumor->mEnd << "</div>\n";
+    ofs << "<div class='sub_section_tips'>" << tumor->mChr << ":" << tumor->mCenter << "</div>\n";
     ofs << "<div class='sub_section_tips'>Left adapter: " << tumor->mLeftAdapter << "</div>\n";
     ofs << "<div class='sub_section_tips'>Right adapter: " << tumor->mRightAdapter << "</div>\n";
     ofs << "<div class='sub_section_tips'>Reference: ..." << seq << "...</div>\n";
+    if(normal) {
+        ofs << "<div class='sub_section_tips'>Tumor depth:" << tumor->mSupportingReads << "</div>\n";
+        ofs << "<div class='sub_section_tips'>Normal depth:" << normal->mSupportingReads << "</div>\n";
+    } else
+        ofs << "<div class='sub_section_tips'>Depth:" << tumor->mSupportingReads << "</div>\n";
     ofs << "<div class='figure' id='plot_" + divName + "'></div>\n";
     ofs << "</div>\n";
 
