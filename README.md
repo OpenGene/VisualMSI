@@ -57,13 +57,14 @@ The reference genome should be a single whole FASTA file containg all chromosome
 * `hg38/GRch38`: http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz  Remember to decompress hg38.fa.gz since it is gzipped and is not supported currently.
 
 ## Target file
-The target file is a bed file giving the MSI locuses. VisualMSI will compute the target MSI locus using the center between the start and the end position. To add a MSI target locus at `chr:pos`, you can add a row with values (chr, pos-100, pos+100, name). You can see the example from targets/msi.bed:
+The target file is a bed file giving the MSI locuses. To add a MSI target locus at `chr:position`, you can add a row with values (chrom, position, name). You can see the example from targets/msi.bed:
 ```TSV
-chr4	55588112	55608311	BAT25
-chr2	47631460	47651659	BAT26
-chr14	23642268	23662467	NR-21
-chr11	102183409	102203608	NR-27
-chr2	95839262	95859461	NR-24
+#CHROM  POSITION  NAME
+chr4  55598216  BAT25
+chr2  47641568  BAT26
+chr14 23652365  NR-21
+chr11 102193518 NR-27
+chr2  95849372  NR-24
 ```
 Please note that this bed file is based on hg19 coordination.
 
