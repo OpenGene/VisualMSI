@@ -30,7 +30,7 @@ int main(int argc, char* argv[]){
     // input/output
     cmd.add<string>("in", 'i', "input sorted bam/sam file for the case (tumor) sample. STDIN will be read from if it's not specified", false, "-");
     cmd.add<string>("normal", 'n', "input sorted bam/sam file for the paired normal sample (tumor-normal mode). If not specified, VisualMSI will run in case-only mode.", false, "");
-    cmd.add<string>("target", 't', "the bed file (chr, start, end, name) to give the MSI targets", true, "");
+    cmd.add<string>("target", 't', "the TSV file (chrom, position, name) to give the MSI targets", true, "");
     cmd.add<string>("ref", 'r', "reference fasta file name (should be an uncompressed .fa/.fasta file)", true, "");
     
     // UMI

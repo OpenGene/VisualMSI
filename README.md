@@ -14,11 +14,11 @@ VisualMSI can run in tumor-normal paired mode or case-only mode, and the tumor-n
 # A quick example
 * Tumor-normal paired mode:
 ```shell
-visualmsi -i tumor.sorted.bam -n normal.sorted.bam -r hg19.fasta -t targets/msi.bed
+visualmsi -i tumor.sorted.bam -n normal.sorted.bam -r hg19.fasta -t targets/msi.tsv
 ```
 * Case-only mode (no paired normal data given):
 ```shell
-visualmsi -i tumor.sorted.bam -r hg19.fasta -t targets/msi.bed
+visualmsi -i tumor.sorted.bam -r hg19.fasta -t targets/msi.tsv
 ```
 
 # Get visualmsi program
@@ -57,7 +57,7 @@ The reference genome should be a single whole FASTA file containg all chromosome
 * `hg38/GRch38`: http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz  Remember to decompress hg38.fa.gz since it is gzipped and is not supported currently.
 
 ## Target file
-The target file is a bed file giving the MSI locuses. To add a MSI target locus at `chr:position`, you can add a row with values (chrom, position, name). You can see the example from targets/msi.bed:
+The target file is a TSV (tab-separated values) file giving the MSI locuses. To add a MSI target locus at `chr:position`, you can add a row with values (chrom, position, name). You can see the example from targets/msi.tsv:
 ```TSV
 #CHROM  POSITION  NAME
 chr4  55598216  BAT25
@@ -66,7 +66,7 @@ chr14 23652365  NR-21
 chr11 102193518 NR-27
 chr2  95849372  NR-24
 ```
-Please note that this bed file is based on hg19 coordination.
+Please note that this file is based on hg19 coordination.
 
 # Reports
 VisualMSI reports results in HTML/JSON/TEXT formats, you can take a look at following examples:
@@ -91,7 +91,7 @@ VisualMSI reports results in HTML/JSON/TEXT formats, you can take a look at foll
 options:
   -i, --in                     input sorted bam/sam file for the case (tumor) sample. STDIN will be read from if it's not specified (string [=-])
   -n, --normal                 input sorted bam/sam file for the paired normal sample (tumor-normal mode). If not specified, VisualMSI will run in case-only mode. (string [=])
-  -t, --target                 the bed file (chr, start, end, name) to give the MSI targets (string)
+  -t, --target                 the TSV file (chr, start, end, name) to give the MSI targets (string)
   -r, --ref                    reference fasta file name (should be an uncompressed .fa/.fasta file) (string)
   
   # options for setting thresholds
