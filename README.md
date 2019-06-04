@@ -85,6 +85,10 @@ VisualMSI reports results in HTML/JSON/TEXT formats, you can take a look at foll
 
 ***For each MSI locus, only the entropy value of tumor data is shown.***
 
+# Cite VisualMSI
+Please cite VisualMSI as following:  
+
+Chen, S., Qu, H., Yang, B., Huang, T., Zhang, X., Liu, Y., ... & Gu, J. (2019). Detect and visualize tumor microsatellite instability status from next-generation sequencing data by simulating PCR techniques. Journal of Clinical Oncology 37, no. 15_suppl.e13052
 
 # All options
 ```
